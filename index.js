@@ -19,7 +19,7 @@ const withoutPreviousAnswers = wordsWithoutInvalidWords.filter(
 );
 
 console.log("BS Wordle Solver");
-console.log("Best Starter: Salet");
+console.log("Best Starter: SALET");
 console.log(
   "Input as [-xX-x asdf] Hyphen if unknown, capital if position correct, lowercase if letter in wrong position [SPACE] letters not in workd"
 );
