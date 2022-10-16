@@ -482,6 +482,7 @@
     "IONIC",
     "EQUAL",
     "FLOOR",
-    "CATCH"
+    "CATCH",
+    "SPADE"
   ]
 }
