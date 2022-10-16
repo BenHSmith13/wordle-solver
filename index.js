@@ -1,20 +1,11 @@
-const dictionary = require("./words_dictionary.json");
+const possibleWords = require("./possible_words.json");
 const usedWords = require("./used_words.json");
-const invalidWords = require("./invalid_words.json");
 const readline = require("readline").createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-const fiveLetterWords = Object.entries(dictionary)
-  .filter(([key, _val]) => key.length === 5)
-  .map((entry) => entry[0]);
-
-const wordsWithoutInvalidWords = fiveLetterWords.filter(
-  (word) => !invalidWords.words.includes(word.toUpperCase())
-);
-
-const withoutPreviousAnswers = wordsWithoutInvalidWords.filter(
+const withoutPreviousAnswers = possibleWords.words.filter(
   (word) => !usedWords.words.includes(word.toUpperCase())
 );
 
