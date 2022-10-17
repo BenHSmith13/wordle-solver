@@ -483,6 +483,7 @@
     "EQUAL",
     "FLOOR",
     "CATCH",
-    "SPADE"
+    "SPADE",
+    "STEIN"
   ]
 }
