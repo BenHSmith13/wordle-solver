@@ -484,6 +484,7 @@
     "FLOOR",
     "CATCH",
     "SPADE",
-    "STEIN"
+    "STEIN",
+    "EXIST"
   ]
 }
