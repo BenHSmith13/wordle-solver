@@ -9,6 +9,32 @@ const withoutPreviousAnswers = possibleWords.words.filter(
   (word) => !usedWords.words.includes(word.toUpperCase())
 );
 
+// TODO: Make this work
+// const mostImpactfulWord = (words) => {
+//   const wordScores = {};
+
+//   words.forEach((currentWord) => {
+//     wordScores[currentWord] = {};
+//     words.forEach((compareWord) => {
+//       if (currentWord == compareWord) return;
+//       let common = 0;
+//       for (let k = 0; k < currentWord.length; k++) {
+//         if (compareWord.includes(currentWord[k])) {
+//           common++;
+//         }
+//       }
+//       currentCommon = Math.max(currentCommon, common);
+//     });
+
+//     if (currentCommon > maxCommon) {
+//       maxCommon = currentCommon;
+//       result = currentWord;
+//     }
+//   });
+
+//   return result;
+// };
+
 console.log("BS Wordle Solver");
 console.log("Best Starter: SALET");
 console.log(
@@ -33,6 +59,9 @@ readline.question(`Input: `, (input) => {
       (word) => !word.includes(usedLetter)
     );
   });
+
+  // const bestPick = mostImpactfulWord(filteredWordList);
+  // console.log("Most Impactful Word: ", bestPick);
 
   console.log(filteredWordList);
   readline.close();
