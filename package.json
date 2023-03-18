@@ -3,5 +3,6 @@
   "version": "1.0.0",
   "description": "Node Wordle Solver",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module"
 }
