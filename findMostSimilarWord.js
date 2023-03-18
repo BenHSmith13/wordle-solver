@@ -2,27 +2,25 @@ export function findMostSimilarWord(words) {
   let maxCommonLetters = 0;
   let mostSimilarWord = "";
 
-  for (let i = 0; i < words.length; i++) {
-    const word1 = words[i];
+  words.forEach((word1) => {
     let commonLetters = 0;
 
-    for (let j = 0; j < words.length; j++) {
-      if (i !== j) {
-        const word2 = words[j];
-
-        for (let k = 0; k < word1.length; k++) {
-          if (word2.includes(word1[k])) {
+    words.forEach((word2) => {
+      if (word1 !== word2) {
+        // TODO: unique letters only, perhaps with a Set
+        [...word1].forEach((letter) => {
+          if (word2.includes(letter)) {
             commonLetters++;
           }
-        }
+        });
       }
-    }
+    });
 
     if (commonLetters > maxCommonLetters) {
       maxCommonLetters = commonLetters;
       mostSimilarWord = word1;
     }
-  }
+  });
 
   return mostSimilarWord;
 }

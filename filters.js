@@ -44,6 +44,8 @@ function filterOutUsedLetters(words, usedLetters) {
   return filteredWords;
 }
 
+// TODO: combine this with filterHasCorrectLetters for optimization
+// Or don't, because it's not slow on my machine, I'm the only consumer, the data is finite, and I don't care about this project that much
 function filterOutIncorrectLetterPlacements(words, incorrectLetters) {
   let filteredWords = words;
   incorrectLetters.split("").forEach((incorrectLetter, index) => {
