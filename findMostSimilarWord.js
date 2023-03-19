@@ -7,8 +7,8 @@ export function findMostSimilarWord(words) {
 
     words.forEach((word2) => {
       if (word1 !== word2) {
-        // TODO: unique letters only, perhaps with a Set
-        [...word1].forEach((letter) => {
+        const uniqueLetters = new Set([...word1]);
+        uniqueLetters.forEach((letter) => {
           if (word2.includes(letter)) {
             commonLetters++;
           }
