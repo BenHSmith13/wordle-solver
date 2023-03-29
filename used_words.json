@@ -66,6 +66,7 @@
     "BELLY",
     "BENCH",
     "BERTH",
+    "BESET",
     "BIOME",
     "BLACK",
     "BLAME",
@@ -270,6 +271,7 @@
     "GROVE",
     "GROWL",
     "GRUEL",
+    "GUANO",
     "GUILD",
     "GULLY",
     "HAIRY",
@@ -290,6 +292,7 @@
     "HUMOR",
     "HUMPH",
     "HUNKY",
+    "HURRY",
     "HUTCH",
     "HYPER",
     "IMPEL",
@@ -638,7 +641,6 @@
     "YACHT",
     "YEARN",
     "YIELD",
-    "GUANO",
     "YOUTH",
     "ZESTY"
   ]
