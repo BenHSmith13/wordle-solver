@@ -13,6 +13,7 @@ console.log(
   "Input as [-xX-x asdf x--x-] Hyphen if unknown, capital if position correct, lowercase if letter in wrong position [SPACE] letters not in workd"
 );
 
+// TODO: import function from solver.js
 readline.question(`Input: `, (input) => {
   const [correctLetters, usedLetters, incorrectLetters] = input.split(" ");
   const filteredWordList = filteredWords(

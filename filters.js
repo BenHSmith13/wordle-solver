@@ -1,6 +1,26 @@
 import possibleWords from "./possible_words.json" assert { type: "json" };
 import usedWords from "./used_words.json" assert { type: "json" };
 
+export function filteredWordsByGuesses(guesses) {
+  let filteredWordList = filterOutPreviousAnswers(
+    possibleWords.words,
+    usedWords.words
+  );
+
+  guesses.forEach((guess) => {
+    filteredWordList = filterHasCorrectLetters(
+      filteredWordList,
+      guess.correctLetters
+    );
+    filteredWordList = filterOutUsedLetters(
+      filteredWordList,
+      guess.usedLetters
+    );
+  });
+
+  return filteredWordList;
+}
+
 export function filteredWords(correctLetters, usedLetters, incorrectLetters) {
   let filteredWordList = filterOutPreviousAnswers(
     possibleWords.words,
