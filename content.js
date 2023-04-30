@@ -64,7 +64,12 @@ const update = () => {
   })();
 };
 
-// TODO: add word to used word list
+window.addEventListener("keyup", (e) => {
+  if (e.key !== "Enter") return;
+  update();
+});
+
+// TODO: add a button to append the answer to the JSON file
 
 const dialog = document.createElement("div");
 dialog.innerHTML = `
