@@ -66,10 +66,12 @@ const update = () => {
 
 window.addEventListener("keyup", (e) => {
   if (e.key !== "Enter") return;
-  update();
+  // TODO: wait for animation to finish
+  setTimeout(update, 2000);
 });
 
 // TODO: add a button to append the answer to the JSON file
+// might have to do this in a background script
 
 const dialog = document.createElement("div");
 dialog.innerHTML = `
