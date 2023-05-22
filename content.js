@@ -1,6 +1,8 @@
 // Remove annoying ads
-const ads = [...document.getElementsByClassName("ad")];
-ads.forEach((ad) => ad.remove());
+const removeAds = () => {
+  const ads = [...document.getElementsByClassName("ad")];
+  ads.forEach((ad) => ad.remove());
+};
 
 // updater
 const updateDialog = ({ bestPick, filteredWordList }) => {
@@ -23,6 +25,7 @@ const rowIsValid = (row) => {
 };
 
 const update = () => {
+  removeAds();
   const guesses = [];
   // scrape the page
   const rows = [...document.getElementsByClassName("Row-module_row__pwpBq")];
@@ -103,3 +106,4 @@ button.onclick = update;
 dialog.appendChild(button);
 
 document.body.appendChild(dialog);
+removeAds();
