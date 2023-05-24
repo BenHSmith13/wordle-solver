@@ -14,7 +14,8 @@ export function filteredWordsByGuesses(guesses) {
     );
     filteredWordList = filterOutUsedLetters(
       filteredWordList,
-      guess.usedLetters
+      guess.usedLetters,
+      guess.correctLetters
     );
   });
 
@@ -28,7 +29,11 @@ export function filteredWords(correctLetters, usedLetters, incorrectLetters) {
   );
 
   filteredWordList = filterHasCorrectLetters(filteredWordList, correctLetters);
-  filteredWordList = filterOutUsedLetters(filteredWordList, usedLetters);
+  filteredWordList = filterOutUsedLetters(
+    filteredWordList,
+    usedLetters,
+    correctLetters
+  );
   filteredWordList = filterOutIncorrectLetterPlacements(
     filteredWordList,
     incorrectLetters
@@ -56,9 +61,11 @@ function filterHasCorrectLetters(words, correctLetters) {
   return filteredWords;
 }
 
-function filterOutUsedLetters(words, usedLetters) {
+function filterOutUsedLetters(words, usedLetters, correctLetters) {
   let filteredWords = words;
+  const okLetters = correctLetters?.replace(/-/g, "").toLowerCase() ?? "";
   usedLetters.split("").forEach((usedLetter) => {
+    if (okLetters.includes(usedLetter)) return;
     filteredWords = filteredWords.filter((word) => !word.includes(usedLetter));
   });
   return filteredWords;
