@@ -1,51 +1,34 @@
-import possibleWords from "./possible_words.json" assert { type: "json" };
-import usedWords from "./used_words.json" assert { type: "json" };
+import possibleWords from "./possible_words.json" with { type: "json" };
+import usedWords from "./used_words.json" with { type: "json" };
 
 export function filteredWordsByGuesses(guesses) {
-  let filteredWordList = filterOutPreviousAnswers(
-    possibleWords.words,
-    usedWords.words
-  );
+  let filteredWordList = filterOutPreviousAnswers(possibleWords.words, usedWords.words);
 
   guesses.forEach((guess) => {
-    filteredWordList = filterHasCorrectLetters(
-      filteredWordList,
-      guess.correctLetters
-    );
+    filteredWordList = filterHasCorrectLetters(filteredWordList, guess.correctLetters);
     filteredWordList = filterOutUsedLetters(
       filteredWordList,
       guess.usedLetters,
       guess.correctLetters
     );
   });
+  console.log(filteredWordList);
 
   return filteredWordList;
 }
 
 export function filteredWords(correctLetters, usedLetters, incorrectLetters) {
-  let filteredWordList = filterOutPreviousAnswers(
-    possibleWords.words,
-    usedWords.words
-  );
+  let filteredWordList = filterOutPreviousAnswers(possibleWords.words, usedWords.words);
 
   filteredWordList = filterHasCorrectLetters(filteredWordList, correctLetters);
-  filteredWordList = filterOutUsedLetters(
-    filteredWordList,
-    usedLetters,
-    correctLetters
-  );
-  filteredWordList = filterOutIncorrectLetterPlacements(
-    filteredWordList,
-    incorrectLetters
-  );
+  filteredWordList = filterOutUsedLetters(filteredWordList, usedLetters, correctLetters);
+  filteredWordList = filterOutIncorrectLetterPlacements(filteredWordList, incorrectLetters);
 
   return filteredWordList;
 }
 
 function filterOutPreviousAnswers(possibleWords, usedWords) {
-  return possibleWords.filter(
-    (word) => !usedWords.includes(word.toUpperCase())
-  );
+  return possibleWords.filter((word) => !usedWords.includes(word.toUpperCase()));
 }
 
 function filterHasCorrectLetters(words, correctLetters) {
@@ -77,9 +60,7 @@ function filterOutIncorrectLetterPlacements(words, incorrectLetters) {
   let filteredWords = words;
   incorrectLetters.split("").forEach((incorrectLetter, index) => {
     if (incorrectLetter === "-") return;
-    filteredWords = filteredWords.filter(
-      (word) => word[index] !== incorrectLetter
-    );
+    filteredWords = filteredWords.filter((word) => word[index] !== incorrectLetter);
   });
   return filteredWords;
 }
